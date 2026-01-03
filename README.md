@@ -13,9 +13,7 @@ A beautiful, indie-style productivity workspace that combines focus management, 
 <img width="1855" height="925" alt="image" src="https://github.com/user-attachments/assets/fb8b1e10-1a28-47ed-ac87-5dabb285f561" />
 <img width="1855" height="913" alt="image" src="https://github.com/user-attachments/assets/23dfbc4c-1685-450e-bd46-706797ebf25a" />
 <img width="1863" height="916" alt="image" src="https://github.com/user-attachments/assets/143d3f8d-9b18-4434-9c7a-c5ad5095acdc" />
-<img width="1844" height="896" alt="image" src="https://github.com/user-attachments/assets/15c1662d-1e16-4419-a3c8-421e90897c9c" />
-
-
+<img width="1859" height="926" alt="image" src="https://github.com/user-attachments/assets/645ce6f1-aa5c-42d7-ac0d-84994e4016f9" />
 ✨ Features
 🎯 Core Functionality
 
