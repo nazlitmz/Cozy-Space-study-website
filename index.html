@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CozySpace - Your Personal Productivity Haven</title>
+    <meta
+      name="description"
+      content="A cozy, indie-style productivity workspace with focus timer, notes, todos, and ambient sounds"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="theme-light">
+    <!-- Enhanced Page Loading Animation -->
+    <div class="page-loader" id="page-loader">
+      <div class="loader-content">
+        <div class="loader-icon">🌙</div>
+        <div class="loader-text">CozySpace</div>
+        <div class="loader-subtitle">Creating your perfect workspace...</div>
+        <div class="loading-dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Authentication Container -->
+    <div class="auth-container" id="auth-container" style="display: none">
+      <!-- Login Form -->
+      <div class="auth-card" id="login-form">
+        <div class="auth-header">
+          <div class="auth-logo">🌙</div>
+          <h1 class="auth-title">Welcome to CozySpace</h1>
+          <p class="auth-subtitle">Your personal productivity haven awaits</p>
+        </div>
+
+        <form id="login-form-element" class="auth-form">
+          <div class="form-group">
+            <label for="login-email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="login-email"
+              class="form-input"
+              placeholder="your.email@example.com"
+              required
+            />
+            <div id="login-email-error" class="form-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="login-password" class="form-label">Password</label>
+            <input
+              type="password"
+              id="login-password"
+              class="form-input"
+              placeholder="Enter your password"
+              required
+            />
+            <div id="login-password-error" class="form-error"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+
+        <div class="auth-footer">
+          <p>
+            Don't have an account? <a href="#" id="show-register">Sign up</a>
+          </p>
+          <div class="demo-info">
+            <p class="demo-text">Try demo account:</p>
+            <p class="demo-credentials">
+              <strong>demo@cozyspace.com</strong> / <strong>demo123</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Register Form -->
+      <div class="auth-card" id="register-form" style="display: none">
+        <div class="auth-header">
+          <div class="auth-logo">✨</div>
+          <h1 class="auth-title">Join CozySpace</h1>
+          <p class="auth-subtitle">Create your productivity sanctuary</p>
+        </div>
+
+        <form id="register-form-element" class="auth-form">
+          <div class="form-group">
+            <label for="register-name" class="form-label">Full Name</label>
+            <input
+              type="text"
+              id="register-name"
+              class="form-input"
+              placeholder="Enter your full name"
+              required
+            />
+            <div id="register-name-error" class="form-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="register-email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="register-email"
+              class="form-input"
+              placeholder="your.email@example.com"
+              required
+            />
+            <div id="register-email-error" class="form-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="register-password" class="form-label">Password</label>
+            <input
+              type="password"
+              id="register-password"
+              class="form-input"
+              placeholder="Choose a secure password"
+              required
+            />
+            <div id="register-password-error" class="form-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="register-password-confirm" class="form-label"
+              >Confirm Password</label
+            >
+            <input
+              type="password"
+              id="register-password-confirm"
+              class="form-input"
+              placeholder="Confirm your password"
+              required
+            />
+            <div id="register-password-confirm-error" class="form-error"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Create Account</button>
+        </form>
+
+        <div class="auth-footer">
+          <p>
+            Already have an account? <a href="#" id="show-login">Sign in</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Profile Setup -->
+      <div class="auth-card" id="profile-setup-form" style="display: none">
+        <div class="auth-header">
+          <div class="auth-logo">🎨</div>
+          <h1 class="auth-title">Personalize Your Space</h1>
+          <p class="auth-subtitle">Let's set up your profile</p>
+        </div>
+
+        <form id="profile-setup-form-element" class="auth-form">
+          <div class="avatar-selection">
+            <label class="form-label">Choose your avatar:</label>
+            <div class="avatar-options">
+              <button
+                type="button"
+                class="avatar-option active"
+                data-avatar="👤"
+              >
+                👤
+              </button>
+              <button type="button" class="avatar-option" data-avatar="🌙">
+                🌙
+              </button>
+              <button type="button" class="avatar-option" data-avatar="🦉">
+                🦉
+              </button>
+              <button type="button" class="avatar-option" data-avatar="🌿">
+                🌿
+              </button>
+              <button type="button" class="avatar-option" data-avatar="☕">
+                ☕
+              </button>
+              <button type="button" class="avatar-option" data-avatar="📚">
+                📚
+              </button>
+              <button type="button" class="avatar-option" data-avatar="🎨">
+                🎨
+              </button>
+              <button type="button" class="avatar-option" data-avatar="🌸">
+                🌸
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="profile-bio" class="form-label"
+              >Tell us about yourself (optional)</label
+            >
+            <textarea
+              id="profile-bio"
+              class="form-input"
+              placeholder="What motivates you? What are you working on?"
+              rows="3"
+              maxlength="200"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="profile-timezone" class="form-label">Timezone</label>
+            <select id="profile-timezone" class="form-input">
+              <option value="auto">Auto-detect</option>
+              <option value="America/New_York">Eastern Time</option>
+              <option value="America/Chicago">Central Time</option>
+              <option value="America/Denver">Mountain Time</option>
+              <option value="America/Los_Angeles">Pacific Time</option>
+              <option value="Europe/London">London</option>
+              <option value="Europe/Paris">Paris</option>
+              <option value="Europe/Istanbul">Istanbul</option>
+              <option value="Asia/Tokyo">Tokyo</option>
+              <option value="Asia/Shanghai">Shanghai</option>
+              <option value="Australia/Sydney">Sydney</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Complete Setup</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main Application -->
+    <div class="app-container" id="app-container">
+      <header class="header">
+        <div class="header-container">
+          <div class="logo">
+            <span class="logo-icon">🌙</span>
+            <h1>CozySpace</h1>
+          </div>
+
+          <nav class="header-nav">
+            <!-- User Profile Section -->
+            <div class="user-profile" id="user-profile">
+              <div class="user-avatar" id="user-avatar">👤</div>
+              <div class="user-menu" id="user-menu">
+                <div class="user-info">
+                  <div class="user-name" id="user-display-name">Guest User</div>
+                  <div class="user-email" id="user-display-email">
+                    guest@cozyspace.com
+                  </div>
+                </div>
+                <div class="menu-divider"></div>
+                <button class="menu-item" id="profile-settings">
+                  <span class="menu-icon">⚙️</span>
+                  Profile Settings
+                </button>
+                <button class="menu-item" id="export-data">
+                  <span class="menu-icon">💾</span>
+                  Export Data
+                </button>
+                <button class="menu-item" id="import-data">
+                  <span class="menu-icon">📁</span>
+                  Import Data
+                </button>
+                <div class="menu-divider"></div>
+                <button class="menu-item" id="logout-btn">
+                  <span class="menu-icon">🚪</span>
+                  Sign Out
+                </button>
+                <button class="menu-item danger" id="reset-profile">
+                  <span class="menu-icon">🗑️</span>
+                  Reset Profile
+                </button>
+              </div>
+            </div>
+
+            <div class="theme-switcher">
+              <label for="theme-select" class="sr-only">Choose theme</label>
+              <select
+                id="theme-select"
+                class="theme-select"
+                aria-label="Theme selection"
+              >
+                <option value="light">☀️ Light & Cozy</option>
+                <option value="coffee">☕ Coffee Shop</option>
+                <option value="cottage">🌿 Cottagecore</option>
+                <option value="forest">🌲 Forest Night</option>
+              </select>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Profile Settings Modal -->
+      <div class="modal-overlay" id="profile-modal" style="display: none">
+        <div class="modal">
+          <div class="modal-header">
+            <h3 id="profile-modal-title">Profile Settings</h3>
+            <button class="modal-close" id="close-profile-modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="profile-setup">
+              <div class="avatar-selection">
+                <label class="form-label">Avatar:</label>
+                <div class="avatar-options" id="modal-avatar-options">
+                  <button
+                    type="button"
+                    class="avatar-option active"
+                    data-avatar="👤"
+                  >
+                    👤
+                  </button>
+                  <button type="button" class="avatar-option" data-avatar="🌙">
+                    🌙
+                  </button>
+                  <button type="button" class="avatar-option" data-avatar="🦉">
+                    🦉
+                  </button>
+                  <button type="button" class="avatar-option" data-avatar="🌿">
+                    🌿
+                  </button>
+                  <button type="button" class="avatar-option" data-avatar="☕">
+                    ☕
+                  </button>
+                  <button type="button" class="avatar-option" data-avatar="📚">
+                    📚
+                  </button>
+                  <button type="button" class="avatar-option" data-avatar="🎨">
+                    🎨
+                  </button>
+                  <button type="button" class="avatar-option" data-avatar="🌸">
+                    🌸
+                  </button>
+                </div>
+              </div>
+
+              <form id="profile-form">
+                <div class="form-group">
+                  <label for="profile-name" class="form-label">Your Name</label>
+                  <input
+                    type="text"
+                    id="profile-name"
+                    class="form-input"
+                    placeholder="Enter your name"
+                    maxlength="50"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="profile-bio-modal" class="form-label"
+                    >About You</label
+                  >
+                  <textarea
+                    id="profile-bio-modal"
+                    class="form-input"
+                    placeholder="Tell us a bit about yourself..."
+                    rows="3"
+                    maxlength="200"
+                  ></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="profile-timezone-modal" class="form-label"
+                    >Timezone</label
+                  >
+                  <select id="profile-timezone-modal" class="form-input">
+                    <option value="auto">Auto-detect</option>
+                    <option value="America/New_York">Eastern Time</option>
+                    <option value="America/Chicago">Central Time</option>
+                    <option value="America/Denver">Mountain Time</option>
+                    <option value="America/Los_Angeles">Pacific Time</option>
+                    <option value="Europe/London">London</option>
+                    <option value="Europe/Paris">Paris</option>
+                    <option value="Europe/Istanbul">Istanbul</option>
+                    <option value="Asia/Tokyo">Tokyo</option>
+                    <option value="Asia/Shanghai">Shanghai</option>
+                    <option value="Australia/Sydney">Sydney</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="cancel-profile">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary" id="save-profile">
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="layout">
+        <aside class="sidebar" id="sidebar">
+          <button
+            class="sidebar-toggle"
+            id="sidebar-toggle"
+            aria-label="Toggle sidebar"
+          >
+            <span class="hamburger">☰</span>
+          </button>
+
+          <!-- Enhanced User Welcome Section -->
+          <div class="user-welcome" id="user-welcome">
+            <div class="welcome-avatar" id="welcome-avatar">👤</div>
+            <div class="welcome-text">
+              <div class="welcome-greeting" id="welcome-greeting">
+                Good morning!
+              </div>
+              <div class="welcome-name" id="welcome-name">Guest</div>
+              <div class="welcome-subtitle">Let's be productive today</div>
+            </div>
+          </div>
+
+          <nav class="sidebar-nav">
+            <h2 class="sidebar-title">🎯 Workspace</h2>
+            <ul class="nav-list">
+              <li>
+                <a href="#todos" class="nav-link active" data-widget="todos">
+                  <span class="nav-icon">✓</span>
+                  <span class="nav-text">To-Do</span>
+                  <span class="nav-badge" id="todos-badge">0</span>
+                </a>
+              </li>
+              <li>
+                <a href="#timer" class="nav-link" data-widget="timer">
+                  <span class="nav-icon">⏱️</span>
+                  <span class="nav-text">Focus Timer</span>
+                </a>
+              </li>
+              <li>
+                <a href="#notes" class="nav-link" data-widget="notes">
+                  <span class="nav-icon">📝</span>
+                  <span class="nav-text">Notes</span>
+                </a>
+              </li>
+              <li>
+                <a href="#calendar" class="nav-link" data-widget="calendar">
+                  <span class="nav-icon">📅</span>
+                  <span class="nav-text">Calendar</span>
+                </a>
+              </li>
+              <li>
+                <a href="#ambient" class="nav-link" data-widget="ambient">
+                  <span class="nav-icon">🎵</span>
+                  <span class="nav-text">Ambient</span>
+                </a>
+              </li>
+              <li>
+                <a href="#links" class="nav-link" data-widget="links">
+                  <span class="nav-icon">🔗</span>
+                  <span class="nav-text">Quick Links</span>
+                </a>
+              </li>
+            </ul>
+
+            <!-- Enhanced Personal Stats -->
+            <div class="sidebar-stats" id="sidebar-stats">
+              <h3>📊 Your Progress</h3>
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <div class="stat-icon">🎯</div>
+                  <div class="stat-content">
+                    <span class="stat-label">Focus Sessions</span>
+                    <span class="stat-value" id="sidebar-sessions">0</span>
+                  </div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-icon">✅</div>
+                  <div class="stat-content">
+                    <span class="stat-label">Tasks Done</span>
+                    <span class="stat-value" id="sidebar-tasks">0</span>
+                  </div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-icon">🔥</div>
+                  <div class="stat-content">
+                    <span class="stat-label">Current Streak</span>
+                    <span class="stat-value" id="sidebar-streak">0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </aside>
+
+        <main class="main-workspace" id="main-workspace">
+          <!-- Enhanced To-Do Widget -->
+          <section
+            class="widget todos-widget"
+            id="todos"
+            aria-label="To-Do List"
+          >
+            <header class="widget-header">
+              <div class="widget-header-content">
+                <h2>✓ Today's Tasks</h2>
+                <p class="widget-subtitle">Stay organized and focused</p>
+              </div>
+              <button
+                class="add-todo-btn"
+                id="add-todo-btn"
+                aria-label="Add new task"
+              >
+                <span class="btn-icon">+</span>
+                <span>Add Task</span>
+              </button>
+            </header>
+
+            <div class="widget-content">
+              <div class="empty-state" id="todos-empty">
+                <div class="empty-illustration">✨</div>
+                <h3>No tasks yet!</h3>
+                <p>
+                  Add your first task to get started on your productive day.
+                </p>
+              </div>
+
+              <ul class="todos-list" id="todos-list" role="list"></ul>
+
+              <div
+                class="add-todo-form"
+                id="add-todo-form"
+                style="display: none"
+              >
+                <div class="form-header">
+                  <h3>Add New Task</h3>
+                </div>
+                <input
+                  type="text"
+                  id="todo-input"
+                  placeholder="What would you like to accomplish today?"
+                  class="todo-input"
+                  maxlength="200"
+                />
+                <div class="form-actions">
+                  <button type="button" class="btn btn-primary" id="save-todo">
+                    <span class="btn-icon">💾</span>
+                    Save Task
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="cancel-todo"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Enhanced Focus Timer Widget -->
+          <section
+            class="widget timer-widget"
+            id="timer"
+            aria-label="Focus Timer"
+            style="display: none"
+          >
+            <header class="widget-header">
+              <div class="widget-header-content">
+                <h2>⏱️ Focus Timer</h2>
+                <p class="widget-subtitle">
+                  Deep work sessions with Pomodoro technique
+                </p>
+              </div>
+              <div class="timer-mode">
+                <span id="timer-mode-text">Focus Time</span>
+              </div>
+            </header>
+
+            <div class="widget-content">
+              <div class="timer-display">
+                <div class="timer-circle">
+                  <svg
+                    class="timer-svg"
+                    width="280"
+                    height="280"
+                    viewBox="0 0 280 280"
+                  >
+                    <circle cx="140" cy="140" r="120" class="timer-bg"></circle>
+                    <circle
+                      cx="140"
+                      cy="140"
+                      r="120"
+                      class="timer-progress"
+                      id="timer-progress"
+                    ></circle>
+                  </svg>
+                  <div class="timer-time" id="timer-time">25:00</div>
+                  <div class="timer-session-info" id="timer-session-info">
+                    Session 1
+                  </div>
+                </div>
+              </div>
+
+              <div class="timer-controls">
+                <button id="timer-start" class="btn btn-primary timer-btn">
+                  <span class="btn-icon">▶️</span>
+                  <span>Start Focus</span>
+                </button>
+                <button
+                  id="timer-pause"
+                  class="btn btn-secondary timer-btn"
+                  style="display: none"
+                >
+                  <span class="btn-icon">⏸️</span>
+                  <span>Pause</span>
+                </button>
+                <button id="timer-reset" class="btn btn-secondary timer-btn">
+                  <span class="btn-icon">🔄</span>
+                  <span>Reset</span>
+                </button>
+              </div>
+
+              <div class="timer-stats">
+                <div class="stat-card">
+                  <div class="stat-icon">🎯</div>
+                  <div class="stat-content">
+                    <span class="stat-label">Sessions Today</span>
+                    <span class="stat-value" id="sessions-count">0</span>
+                  </div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon">⏰</div>
+                  <div class="stat-content">
+                    <span class="stat-label">Total Time</span>
+                    <span class="stat-value" id="total-time">0h</span>
+                  </div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon">🔥</div>
+                  <div class="stat-content">
+                    <span class="stat-label">Current Streak</span>
+                    <span class="stat-value" id="streak-count">0</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timer-settings">
+                <h3 class="settings-title">🔧 Timer Settings</h3>
+
+                <div class="settings-grid">
+                  <label class="checkbox-label">
+                    <input type="checkbox" id="ambient-sound-toggle" />
+                    <span class="checkmark"></span>
+                    🎵 Play rain sounds during focus
+                  </label>
+
+                  <label class="checkbox-label">
+                    <input type="checkbox" id="notifications-toggle" checked />
+                    <span class="checkmark"></span>
+                    🔔 Desktop notifications
+                  </label>
+
+                  <label class="checkbox-label">
+                    <input type="checkbox" id="auto-start-breaks" />
+                    <span class="checkmark"></span>
+                    ⏰ Auto-start break timer
+                  </label>
+                </div>
+
+                <div class="slider-group">
+                  <label for="focus-duration" class="slider-label">
+                    🎯 Focus Duration:
+                    <span id="focus-duration-value">25</span> minutes
+                  </label>
+                  <input
+                    type="range"
+                    id="focus-duration"
+                    min="15"
+                    max="60"
+                    value="25"
+                    class="slider"
+                  />
+                </div>
+
+                <div class="slider-group">
+                  <label for="break-duration" class="slider-label">
+                    ☕ Break Duration:
+                    <span id="break-duration-value">5</span> minutes
+                  </label>
+                  <input
+                    type="range"
+                    id="break-duration"
+                    min="3"
+                    max="15"
+                    value="5"
+                    class="slider"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Enhanced Notes Widget -->
+          <section
+            class="widget notes-widget"
+            id="notes"
+            aria-label="Notes"
+            style="display: none"
+          >
+            <header class="widget-header">
+              <div class="widget-header-content">
+                <h2>📝 Notes</h2>
+                <p class="widget-subtitle">Capture your thoughts and ideas</p>
+              </div>
+              <div class="notes-info">
+                <span class="word-count" id="word-count">0 words</span>
+                <span class="save-status saved" id="save-status">Saved</span>
+              </div>
+            </header>
+
+            <div class="widget-content">
+              <div class="notes-toolbar">
+                <div class="notes-tools">
+                  <button
+                    class="notes-tool-btn"
+                    id="bold-btn"
+                    title="Bold (Ctrl+B)"
+                  >
+                    <strong>B</strong>
+                  </button>
+                  <button
+                    class="notes-tool-btn"
+                    id="italic-btn"
+                    title="Italic (Ctrl+I)"
+                  >
+                    <em>I</em>
+                  </button>
+                  <button
+                    class="notes-tool-btn"
+                    id="clear-btn"
+                    title="Clear All"
+                  >
+                    🗑️
+                  </button>
+                  <button
+                    class="notes-tool-btn"
+                    id="export-btn"
+                    title="Export as Text"
+                  >
+                    💾
+                  </button>
+                </div>
+              </div>
+
+              <div class="notes-container">
+                <div class="empty-state notes-empty" id="notes-empty">
+                  <div class="empty-illustration">📝</div>
+                  <h3>Start writing...</h3>
+                  <p>Your thoughts, ideas, and inspiration go here</p>
+                </div>
+
+                <textarea
+                  id="notes-textarea"
+                  class="notes-textarea"
+                  placeholder="Write your thoughts, ideas, or anything that comes to mind...
+
+💡 Tips:
+• Use Ctrl+B for bold text
+• Use Ctrl+I for italic text
+• Your notes are automatically saved
+• Click export to download as text file"
+                  aria-label="Notes text area"
+                ></textarea>
+              </div>
+            </div>
+          </section>
+
+          <!-- Enhanced Calendar Widget -->
+          <section
+            class="widget calendar-widget"
+            id="calendar"
+            aria-label="Calendar"
+            style="display: none"
+          >
+            <header class="widget-header">
+              <div class="widget-header-content">
+                <h2>📅 Calendar</h2>
+                <p class="widget-subtitle">Plan and organize your schedule</p>
+              </div>
+              <div class="calendar-nav">
+                <button
+                  id="prev-month"
+                  class="calendar-nav-btn"
+                  aria-label="Previous month"
+                >
+                  ‹
+                </button>
+                <span id="current-month" class="current-month"
+                  >December 2024</span
+                >
+                <button
+                  id="next-month"
+                  class="calendar-nav-btn"
+                  aria-label="Next month"
+                >
+                  ›
+                </button>
+              </div>
+            </header>
+
+            <div class="widget-content">
+              <div class="calendar-container">
+                <div class="calendar-grid" id="calendar-grid" role="grid">
+                  <!-- Calendar will be generated by JavaScript -->
+                </div>
+
+                <div class="calendar-events" id="calendar-events">
+                  <div class="events-header">
+                    <h3>📋 Today's Events</h3>
+                    <button class="btn btn-primary btn-sm" id="add-event-btn">
+                      <span class="btn-icon">+</span>
+                      Add Event
+                    </button>
+                  </div>
+
+                  <div class="events-list" id="events-list">
+                    <div class="empty-state" id="events-empty">
+                      <div class="empty-illustration">📅</div>
+                      <h3>No events today</h3>
+                      <p>Add an event to start planning your day!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Enhanced Ambient Player Widget -->
+          <section
+            class="widget ambient-widget"
+            id="ambient"
+            aria-label="Ambient Sounds"
+            style="display: none"
+          >
+            <header class="widget-header">
+              <div class="widget-header-content">
+                <h2>🎵 Ambient Sounds</h2>
+                <p class="widget-subtitle">
+                  Create the perfect atmosphere for focus
+                </p>
+              </div>
+              <div class="ambient-status" id="ambient-status">
+                <span class="status-indicator"></span>
+                <span class="status-text">Ready</span>
+              </div>
+            </header>
+
+            <div class="widget-content">
+              <div class="sound-grid">
+                <button
+                  class="sound-card"
+                  data-sound="rain"
+                  aria-label="Play rain sounds"
+                >
+                  <div class="sound-card-icon">🌧️</div>
+                  <div class="sound-card-content">
+                    <h3>Gentle Rain</h3>
+                    <p>Soothing rainfall sounds</p>
+                  </div>
+                </button>
+
+                <button
+                  class="sound-card"
+                  data-sound="forest"
+                  aria-label="Play forest sounds"
+                >
+                  <div class="sound-card-icon">🌲</div>
+                  <div class="sound-card-content">
+                    <h3>Forest Ambience</h3>
+                    <p>Birds chirping & rustling leaves</p>
+                  </div>
+                </button>
+
+                <button
+                  class="sound-card"
+                  data-sound="waves"
+                  aria-label="Play ocean sounds"
+                >
+                  <div class="sound-card-icon">🌊</div>
+                  <div class="sound-card-content">
+                    <h3>Ocean Waves</h3>
+                    <p>Peaceful sea sounds</p>
+                  </div>
+                </button>
+
+                <button
+                  class="sound-card"
+                  data-sound="fireplace"
+                  aria-label="Play fireplace sounds"
+                >
+                  <div class="sound-card-icon">🔥</div>
+                  <div class="sound-card-content">
+                    <h3>Cozy Fireplace</h3>
+                    <p>Warm crackling fire</p>
+                  </div>
+                </button>
+
+                <button
+                  class="sound-card"
+                  data-sound="cafe"
+                  aria-label="Play cafe sounds"
+                >
+                  <div class="sound-card-icon">☕</div>
+                  <div class="sound-card-content">
+                    <h3>Coffee Shop</h3>
+                    <p>Bustling cafe atmosphere</p>
+                  </div>
+                </button>
+
+                <button
+                  class="sound-card"
+                  data-sound="wind"
+                  aria-label="Play wind sounds"
+                >
+                  <div class="sound-card-icon">🍃</div>
+                  <div class="sound-card-content">
+                    <h3>Gentle Wind</h3>
+                    <p>Soft breeze through trees</p>
+                  </div>
+                </button>
+              </div>
+
+              <div class="player-controls">
+                <div class="main-controls">
+                  <button class="btn btn-primary btn-large" id="play-btn">
+                    <span class="btn-icon" id="play-icon">▶️</span>
+                    <span id="play-text">Play</span>
+                  </button>
+                  <button class="btn btn-secondary" id="stop-btn">
+                    <span class="btn-icon">⏹️</span>
+                    <span>Stop</span>
+                  </button>
+                </div>
+
+                <div class="volume-control">
+                  <div class="volume-group">
+                    <span class="volume-icon">🔊</span>
+                    <input
+                      type="range"
+                      id="volume-slider"
+                      min="0"
+                      max="100"
+                      value="50"
+                      class="slider volume-slider"
+                    />
+                    <span class="volume-value" id="volume-value">50%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Enhanced Quick Links Widget -->
+          <section
+            class="widget links-widget"
+            id="links"
+            aria-label="Quick Links"
+            style="display: none"
+          >
+            <header class="widget-header">
+              <div class="widget-header-content">
+                <h2>🔗 Quick Links</h2>
+                <p class="widget-subtitle">
+                  Your favorite websites at your fingertips
+                </p>
+              </div>
+              <button
+                class="add-todo-btn"
+                id="add-link-btn"
+                aria-label="Add new link"
+              >
+                <span class="btn-icon">+</span>
+                <span>Add Link</span>
+              </button>
+            </header>
+
+            <div class="widget-content">
+              <div class="empty-state" id="links-empty">
+                <div class="empty-illustration">🔗</div>
+                <h3>No quick links yet!</h3>
+                <p>Add your favorite websites for easy access.</p>
+              </div>
+
+              <div class="links-grid" id="links-grid"></div>
+
+              <div
+                class="add-link-form"
+                id="add-link-form"
+                style="display: none"
+              >
+                <div class="form-header">
+                  <h3>Add New Link</h3>
+                </div>
+                <input
+                  type="text"
+                  id="link-title"
+                  placeholder="Link title (e.g., GitHub, YouTube)"
+                  class="form-input"
+                  maxlength="50"
+                />
+                <input
+                  type="url"
+                  id="link-url"
+                  placeholder="https://example.com"
+                  class="form-input"
+                />
+                <div class="form-actions">
+                  <button type="button" class="btn btn-primary" id="save-link">
+                    <span class="btn-icon">💾</span>
+                    Save Link
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="cancel-link"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <!-- Event Modal -->
+      <div class="modal-overlay" id="event-modal" style="display: none">
+        <div class="modal">
+          <div class="modal-header">
+            <h3 id="modal-title">Add Event</h3>
+            <button class="modal-close" id="close-event-modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form id="event-form">
+              <div class="form-group">
+                <label for="event-title" class="form-label">Event Title</label>
+                <input
+                  type="text"
+                  id="event-title"
+                  class="form-input"
+                  placeholder="Enter event title"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="event-date" class="form-label">Date</label>
+                <input
+                  type="date"
+                  id="event-date"
+                  class="form-input"
+                  required
+                />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="event-start-time" class="form-label"
+                    >Start Time</label
+                  >
+                  <input
+                    type="time"
+                    id="event-start-time"
+                    class="form-input"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="event-end-time" class="form-label"
+                    >End Time</label
+                  >
+                  <input type="time" id="event-end-time" class="form-input" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="event-description" class="form-label"
+                  >Description</label
+                >
+                <textarea
+                  id="event-description"
+                  class="form-input"
+                  placeholder="Event description (optional)"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Color</label>
+                <div class="color-options">
+                  <label class="color-option">
+                    <input
+                      type="radio"
+                      name="event-color"
+                      value="#e6b3d6"
+                      checked
+                    />
+                    <span
+                      class="color-swatch"
+                      style="background: #e6b3d6"
+                    ></span>
+                  </label>
+                  <label class="color-option">
+                    <input type="radio" name="event-color" value="#b3d9e6" />
+                    <span
+                      class="color-swatch"
+                      style="background: #b3d9e6"
+                    ></span>
+                  </label>
+                  <label class="color-option">
+                    <input type="radio" name="event-color" value="#c6f6d5" />
+                    <span
+                      class="color-swatch"
+                      style="background: #c6f6d5"
+                    ></span>
+                  </label>
+                  <label class="color-option">
+                    <input type="radio" name="event-color" value="#feebc8" />
+                    <span
+                      class="color-swatch"
+                      style="background: #feebc8"
+                    ></span>
+                  </label>
+                  <label class="color-option">
+                    <input type="radio" name="event-color" value="#fed7d7" />
+                    <span
+                      class="color-swatch"
+                      style="background: #fed7d7"
+                    ></span>
+                  </label>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="cancel-event">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary" id="save-event">
+              Save Event
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container" class="notification-container"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
