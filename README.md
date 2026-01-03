@@ -271,7 +271,7 @@ Inspired by cozy productivity apps and cottagecore aesthetics
 
 Issues: GitHub Issues
 Discussions: GitHub Discussions
-Email: support@cozyspace.com
+Email: nazlitemiz45@gmail.com
 
 🗺️ Roadmap
 
@@ -286,7 +286,7 @@ Email: support@cozyspace.com
 
 
 <div align="center">
-Made with 💙 and ☕ by the CozySpace Team
+Made with 💙 and ☕ by the Nazliiiii
 Website • Demo • Documentation
 ⭐ Star us on GitHub if you find this helpful!
 </div>
