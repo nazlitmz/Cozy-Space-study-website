@@ -8,7 +8,7 @@ A beautiful, indie-style productivity workspace that combines focus management, 
 <img width="1847" height="916" alt="image" src="https://github.com/user-attachments/assets/b3416de1-82f8-459d-addd-77bd6c0757f9" />
 <img width="552" height="211" alt="image" src="https://github.com/user-attachments/assets/aa10e7bd-993f-4d99-a9e9-a2ecc8405af1" />
 <img width="1842" height="918" alt="image" src="https://github.com/user-attachments/assets/c388e1bb-1fdb-4f44-9c76-04b4cdbb3a75" />
-<img width="1861" height="921" alt="image" src="https://github.com/user-attachments/assets/2c114c48-3f98-4140-8066-e1e95320afdb" />
+<img width="1862" height="920" alt="image" src="https://github.com/user-attachments/assets/bd93136e-22ad-42bb-a9c0-a51ec81a72a6" />
 <img width="1853" height="924" alt="image" src="https://github.com/user-attachments/assets/fe0668d8-c0b1-45ab-860f-b04609d4c1eb" />
 <img width="1855" height="925" alt="image" src="https://github.com/user-attachments/assets/fb8b1e10-1a28-47ed-ac87-5dabb285f561" />
 <img width="1855" height="913" alt="image" src="https://github.com/user-attachments/assets/23dfbc4c-1685-450e-bd46-706797ebf25a" />
